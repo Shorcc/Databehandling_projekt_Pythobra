@@ -1,13 +1,19 @@
 import sympy as sp
 import matplotlib.pyplot as plt
 
-
 class PythobraBackend:
     def __init__(self):
         pass
 
+
+
     def solve_equation(self, equation, unknown):
-        return "I må selv finde ud af at få koden til at gøre det rigtige, men jeg skal selvfølgelig nok hjælpe jer. :)"
+        begge_sider = equation.split("=")
+        equation1 = sp.Eq(sp.parse_expr(begge_sider[0]),sp.parse_expr(begge_sider[1]))
+        løsning = sp.solve(equation1, unknown)
+        return str(løsning[0].evalf(4))
+
+
 
     def plot_function(
         self,
